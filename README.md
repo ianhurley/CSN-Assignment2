@@ -3,7 +3,7 @@
 Name : Ian Hurley
 Student Number: 20099695
 
-Link to Recorded Demonstration: >> 
+Link to Recorded Demonstration: >> https://youtu.be/MvqHMAyikc0
 
 Description: 
 'ScaNut' - Barcode food product scanner for the presense of Nuts. Refer to Project Proposal >>
