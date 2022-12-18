@@ -5,6 +5,8 @@ from time import sleep
 import pymongo
 from pymongo import MongoClient
 
+import requests #for http event request blynk notifications
+
 # connecting to MongoDB Atlas cloud database
 cluster = MongoClient("mongodb+srv://scanut:scanut@cluster0.x0cl6dg.mongodb.net/test")
 
@@ -158,6 +160,7 @@ while True:
         blynk.virtual_write(5, " ") #yellow
         blynk.virtual_write(1, 255) #red
         blynk.virtual_write(4, "Contains Nuts :(") #red
+        requests.get('https://blynk.cloud/external/api/logEvent?token=q1v6KTg1fFECJJ7mLuAaktu2z2SX5uPj&code=nut')
     elif trace == "contains traces":
         print("WARNING: Contains Traces :|")
         sense.set_pixels(smileSad)
@@ -167,6 +170,7 @@ while True:
         blynk.virtual_write(5, "Contains Traces :|") #yellow
         blynk.virtual_write(1, 0) #red
         blynk.virtual_write(4, " ") #red
+        requests.get('https://blynk.cloud/external/api/logEvent?token=q1v6KTg1fFECJJ7mLuAaktu2z2SX5uPj&code=trace')
     else:
         print("Safe To Eat :)")
         sense.set_pixels(smileHappy)     # Up arrow
@@ -176,5 +180,6 @@ while True:
         blynk.virtual_write(5, " ") #yellow
         blynk.virtual_write(1, 0) #red
         blynk.virtual_write(4, " ") #red
+        requests.get('https://blynk.cloud/external/api/logEvent?token=q1v6KTg1fFECJJ7mLuAaktu2z2SX5uPj&code=safe')
     sleep(0.5)
     sense.clear()
